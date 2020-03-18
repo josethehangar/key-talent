@@ -1,0 +1,43 @@
+@mixin custom-font($size, $spacing, $line: 'normal') {
+  @if $line != 'normal' {
+    $line: strip-unit($line) / strip-unit($size);
+  } @else {
+    $line: unquote($line);
+  }
+
+  font-size: rem-calc($size);
+  letter-spacing: $spacing;
+  line-height: $line;
+  text-rendering: optimizeLegibility;
+}
+
+// sass-lint:disable no-vendor-prefixes
+@mixin animation($args) {
+  -moz-animation: $args;
+  -ms-animation: $args;
+  -webkit-animation: $args;
+  animation: $args;
+}
+
+@mixin breakpoint($points) {
+  @each $point in $points {
+    @if $point == small {
+      @media screen and (min-width: $screen-sm-devices) {
+        @content;
+      }
+    } @else if $point == medium {
+      @media screen and (min-width: $screen-md-devices) {
+        @content;
+      }
+    } @else if $point == large {
+      @media screen and (min-width: $screen-lg-devices) {
+        @content;
+      }
+    } @else if $point == xlarge {
+      @media screen and (min-width: $screen-xl-devices) {
+        @content;
+      }
+    }
+  }
+}
+

@@ -1,0 +1,6 @@
+@function rem-calc($size) {
+   $font-custom-base: strip-unit($font-size-base) / $custom-font-base;
+   $rem-size: strip-unit($size) * $font-custom-base;
+   
+   @return $rem-size * $font-size-base;
+}

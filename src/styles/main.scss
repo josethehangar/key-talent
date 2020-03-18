@@ -1,0 +1,9 @@
+// 1. functions & mixins
+@import 'functions';
+@import 'mixins';
+
+// 2. colors
+@import 'colors';
+
+// 3. Main pages
+@import './pages/Login/login';
